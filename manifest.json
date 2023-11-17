@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "Speedy",
+    "version": "1.0",
+    "description": "Speeds up videos",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.js"],
+            "css": ["main.css"]
+        }
+    ],
+    "commands": {
+        "increase_playback_rate": {
+            "suggested_key": {
+                "default": "Ctrl+Period"
+            },
+            "description": "Increase video playback rate"
+        },
+        "decrease_playback_rate": {
+            "suggested_key": {
+                "default": "Ctrl+Comma"
+            },
+            "description": "Decrease video playback rate"
+        }
+    },
+    "icons": {
+        "16": "speedy.png",
+        "32": "speedy.png",
+        "48": "speedy.png",
+        "128": "speedy.png"
+    }
+}
